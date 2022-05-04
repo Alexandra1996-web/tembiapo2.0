@@ -31,9 +31,13 @@ def ver_empresas():
     return render_template('empresas.html', empresas = empresas)
 
 @app.route("/puestos", methods=["GET", "POST"]) 
-def ver_puestos(): 
+def ver_puesto(): 
     print(request.data)
     return render_template('puestos.html', puestos = empresas[0]["puestos"], empresa = empresas[0]["nombre"])
+
+@app.route("/cuestionario") # Llamamos al metodo route y le pasamos el argumento de la url o slug que queremos que vaya
+def cuestionario(): # Creamos la funcion inicio
+    return render_template('cuestionario.html') 
 
 if __name__ == "__main__":
     app.run(debug=True)
