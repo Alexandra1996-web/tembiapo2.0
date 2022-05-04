@@ -1,6 +1,8 @@
 # python -m flask run 'codigo para hacer funcionar en la terminal' 
+from crypt import methods
 from flask import Flask, render_template, url_for, request # Importamos las librerias a ser usadas
 import requests
+from codigo_feliz import *
 
 empresas = [
 {
@@ -25,10 +27,17 @@ app = Flask(__name__) # Creamos el objeto app
 def inicio(): # Creamos la funcion inicio
     return render_template('index.html') # Retornamos la renderizacion de un doc html (mostrar en pantalla)
 
-@app.route("/empresas", methods=["GET", "POST"]) 
-def ver_empresas(): 
+@app.route("/empresas", methods=['GET', 'POST']) 
+def ver_empresas():
     print(request.data)
-    return render_template('empresas.html', empresas = empresas)
+    keyword = request.form['consulta']
+    temp = busqueda(keyword)
+    dash_dep = temp[0]
+    print(dash_dep)
+    dash_cont = temp[1]
+    dash2_dep = temp[2]
+    dash2_cont = temp[3]  
+    return render_template('index.html', dash_dep = dash_dep, dash_cont = dash_cont, dash2_dep = dash2_dep, dash2_cont = dash2_cont)
 
 @app.route("/puestos", methods=["GET", "POST"]) 
 def ver_puestos(): 
