@@ -37,8 +37,13 @@ Grupo 5 - Tembiapo
 Coach: Alex Caceres
 
 Paola Ortiz
+
 Sergio Garcia 
+
 William Ortiz
+
 Ruth Delvalle
+
 Oscar Ruffinelli
+
 Paz Gamarra
