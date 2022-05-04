@@ -1,6 +1,6 @@
 # tembiapo2.0
 
-Tembiapo
+Nombre del proyecto Tembiapo
 
 Proyecto: Plataforma que busca orientar e incentivar a las personas en su búsqueda de su primer empleo a la inserción laboral.
 
@@ -20,7 +20,9 @@ Feature 3 logrado: cuestionario que permite recopilar información de los intere
 
 
 
+
 Tecnologías y requerimientos:
+
 
 Tailwind CSS v3.0 
 Flask 
@@ -32,7 +34,6 @@ Javascript
 Html
 
 
-Grupo 5 - Tembiapo
 
 
 Coach: Alex Caceres
