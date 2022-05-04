@@ -37,7 +37,7 @@ def ver_empresas():
     dash_cont = temp[1]
     dash2_dep = temp[2]
     dash2_cont = temp[3]  
-    return render_template('index.html', dash_dep = dash_dep, dash_cont = dash_cont, dash2_dep = dash2_dep, dash2_cont = dash2_cont)
+    return render_template('empresas.html', dash_dep = dash_dep, dash_cont = dash_cont, dash2_dep = dash2_dep, dash2_cont = dash2_cont)
 
 @app.route("/puestos", methods=["GET", "POST"]) 
 def ver_puesto(): 
