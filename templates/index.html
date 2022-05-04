@@ -249,8 +249,8 @@
       <div class="text-center text-gray-700 p-4 bg-gray-100 opacity-60">
         2022 -
         <a class="text-gray-800" href="https://penguin.academy/"
-          >Desarrollado en el Penguin Hackaton</a
-        >
+          >Desarrollado en el Penguin Hackaton</a>
+          <div><h1>'{{dash_dep}}'</h1></div>
       </div>
     </footer>
   </body>
@@ -267,5 +267,123 @@
           list.classList.remove("top-[80px]"),
           list.classList.remove("opacity-100"));
     }
+  </script>
+  <!-------------------------------------------- FUNCIONALIDAD CHARTS ----------------------------------------------->
+  <!------------------------------------------------ Chart Puestos -------------------------------------------------->
+  <script>
+    var dashDepartamento = JSON.parse("{{dash_dep}}".replaceAll('&#39;', '"'));
+    var dashContDepartamento = JSON.parse("{{dash_cont}}".replaceAll('&#39;', '"'));
+    var dash2Localidad = JSON.parse("{{dash2_dep}}".replaceAll('&#39;', '"'));
+    var dash2Cont = JSON.parse("{{dash2_cont}}".replaceAll('&#39;', '"'));
+
+    
+    var grafico_puestos = document
+      .getElementById("myChart_puestos")
+      .getContext("2d");
+    var myChart_puestos = new Chart(grafico_puestos, {
+      type: "pie",
+      data: {
+        labels: dashDepartamento,
+        datasets: [
+          {
+            label: "Num datos",
+            data: dashContDepartamento,
+            backgroundColor: [
+              "rgb(74, 111, 165,0.6)",
+              "rgb(74, 135, 72,0.6)",
+              "rgb(247, 141, 111,0.6)",
+            ],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+  </script>
+  <!----------------------------------------------- Chart Empresas 
+  <script>
+    var grafico_empresas = document
+      .getElementById("myChart_empresas")
+      .getContext("2d");
+    var myChart_empresas = new Chart(grafico_empresas, {
+      type: "bar",
+      data: {
+        labels: ["col1", "col2", "col3"],
+        datasets: [
+          {
+            label: "Num datos",
+            data: [10, 9, 15],
+            backgroundColor: [
+              "rgb(74, 111, 165,0.6)",
+              "rgb(74, 135, 72,0.6)",
+              "rgb(247, 141, 111,0.6)",
+            ],
+          },
+        ],
+      },
+      options: {
+        responsive: false,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+  </script>
+  -------------------------------------------------->
+  <!---------------------------------------------- Chart Empresas ------------------------------------------------>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      var grafico_localidades = document
+      .getElementById("myChart_empresas")
+      .getContext("2d");
+    var myChart_localidades = new Chart(grafico_localidades, {
+      type: "bar",
+      data: {
+        labels: dash2Localidad,
+        datasets: [
+          {
+            label: "Num datos",
+            data: dash2Cont,
+            backgroundColor: [
+              "rgb(74, 111, 165,0.6)",
+              "rgb(74, 135, 72,0.6)",
+              "rgb(247, 141, 111,0.6)",
+            ],
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true,
+              },
+            },
+          ],
+        },
+      },
+    });
+    })
   </script>
 </html>
